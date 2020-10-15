@@ -39,9 +39,4 @@ jobs:
                   git remote add main https://github.com/GeoGuess/Geoguess
                   git fetch --tags main
                   git merge -X theirs --allow-unrelated-histories main/release
-                  rm -rf .github
-            - name: Push changes
-              uses: ad-m/github-push-action@master
-              with:
-                github_token: ${{ secrets.GITHUB_TOKEN }}
-                branch: ${{ github.ref }}
+                  git push origin
