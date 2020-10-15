@@ -38,7 +38,7 @@ jobs:
                   git config --local user.name "GeoGuess Updater"
                   git remote add main https://github.com/GeoGuess/Geoguess
                   git fetch --tags main
-                  git merge -X theirs --allow-unrelated-histories ${{ needs.checkTag.outputs.lastTag }}
+                  git merge -X theirs --allow-unrelated-histories release
                   rm -rf .github
             - name: Push changes
               uses: ad-m/github-push-action@master
