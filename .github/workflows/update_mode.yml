@@ -4,6 +4,8 @@ on:
     workflow_dispatch:
     schedule:
         - cron: '0 2 * * *'
+    push:
+    
 
 jobs:
     checkTag:
@@ -37,6 +39,7 @@ jobs:
                   git remote add main https://github.com/GeoGuess/Geoguess
                   git fetch --tags main
                   git merge -X theirs --allow-unrelated-histories ${{ needs.checkTag.outputs.lastTag }}
+                  rm -rf .github
             - name: Push changes
               uses: ad-m/github-push-action@master
               with:
