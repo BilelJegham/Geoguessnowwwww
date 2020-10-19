@@ -18,7 +18,7 @@ jobs:
             - uses: actions/checkout@v2
             - id: lastTag
               run: |
-                  VERSION_LAST=$(curl "https://api.github.com/repos/GeoGuess/Geoguess/releases/latest" | grep -oP '(?<="tag_name": ")[^"]*')
+                  VERSION_LAST=$(curl "https://api.github.com/repos/GeoGuess/Geoguess/releases/latest" | grep -oP '(?<="tag_name": "v)[^"]*')
                   echo ::set-output name=VERSION_LAST::${VERSION_LAST}
             - id: tagActual
               run: |
