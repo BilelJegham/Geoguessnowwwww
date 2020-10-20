@@ -34,6 +34,7 @@ jobs:
             - name: Test if new release
               run: |
                   echo ${{ needs.checkTag.outputs.lastTag }}
+                  echo ${{ needs.checkTag.outputs.tagActual }}
                   git config --local user.email "action@github.com"
                   git config --local user.name "GeoGuess Updater"
                   git remote add main https://github.com/GeoGuess/Geoguess
