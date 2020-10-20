@@ -20,10 +20,12 @@ jobs:
               run: |
                   VERSION_LAST=$(curl "https://api.github.com/repos/GeoGuess/Geoguess/releases/latest" | grep -oP '(?<="tag_name": "v)[^"]*')
                   echo ::set-output name=VERSION_LAST::${VERSION_LAST}
+                  echo ${VERSION_LAST}
             - id: tagActual
               run: |
                   VERSION=$(cat package.json | grep version | head -1 | awk -F: '{ print $2 }' | sed 's/[",]//g' | tr -d '[[:space:]]')
                   echo ::set-output name=TAG::${VERSION}
+                  echo ${VERSION}
 
     update:
         runs-on: ubuntu-latest
